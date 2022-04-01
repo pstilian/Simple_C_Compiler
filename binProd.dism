@@ -1,0 +1,20 @@
+; I pledge my Honor that I have not cheated, and will not cheat, on this assignment Peter Stilian
+#START:	rdn 1			; read first number n
+		rdn 2			; read second number m
+		beq 1 0 #ZERO	; if n == 0 jump to check for second zero and bin
+		lod 3 1 1000	; load value of bin n into r3
+		beq 3 0 #NEWIN	; if r3 == 0 then add value to bin
+		mul 3 2 3		; multiply r3 by m
+		str 1 1000 3	; store value in r3 back in the bin
+		jmp 0 #START    ; return to start
+#NEWIN: str 1 1000 2	; store value m in bin n as first input
+		jmp 0 #START	; return to start
+#ZERO:	beq 2 0 #END	; if both n and m are 0 end program
+		lod 3 2 1000	; load value of bin m into r3
+		ptn 3			; print value of r3
+#LOOP:	rdn 1			; continue taking in new numbers i
+		beq 1 0 #END    ; if a second zero is entered end the program
+		lod 3 1 1000	; load value of bin i into r3
+		ptn 3			; print value of bin
+		jmp 0 #LOOP		; continue taking in new numbers i
+#END:	hlt 0			; halt with code 0

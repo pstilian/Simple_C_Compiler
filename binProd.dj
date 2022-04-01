@@ -1,0 +1,57 @@
+// I pledge to my Honor that I have not cheated, and will not cheat, on this assignment Peter Stilian
+
+// Linked list class that represents a bin
+class LinkedList extends Object {
+	nat data;
+	nat id;
+	LinkedList next;
+
+	// Linked List methods
+	nat setData(nat m) {data = m;}
+	nat setID(nat n) {id = n;}
+	nat prepend(nat void){
+		LinkedList currList;
+		currList = new LinkedList();
+		currList.data = data;
+		currList.id = id;
+		currList.next = next;
+		next = currList;
+	}
+}
+
+// method to print a desired bin
+nat printBin(nat binID){
+	if(id == binID){total = total * data;} else{0;};
+	if(next == null){printNat(total);}
+	else {next.printBin(binID);};
+}
+
+main{
+	// Declare input variables and build linked list
+	nat n;
+	nat m,
+	nat total = 1;
+	bins = new LinkedList();
+
+	n = readNat();
+	m = readNat();
+
+	// Input numbers and id pairs into linked list until 0 is entered
+	for( 0 ; !(n==0) ; 0){
+		bins.setID(n);
+		bins.setData(m);
+		bins.prepend(m);
+		n = readNat();
+		m = readNat();
+	};
+
+	// Take next input number after first zero
+	n = readNat();
+
+	// Output bin totals until another zero is entered
+	for( 0 ; !(n==0) ; 0){
+		bins.printBin(n);
+		total = 1;
+		n = readNat();
+	};
+}
